@@ -2,12 +2,16 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+/// Max value for RGB usage
+const mMaxRGBBalue = 256;
 void main() {
-  runApp(const MyApp());
+  runApp(const Main());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+/// App container
+class Main extends StatelessWidget {
+  ///App container contructor
+  const Main({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +25,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
+///Home Page
 class HomePage extends StatefulWidget {
+  /// Home Page Constructor
   const HomePage({super.key});
 
   @override
@@ -39,13 +45,15 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Center(
           child: OutlinedButton(
-            style: OutlinedButton.styleFrom(side: const BorderSide(color: Colors.orange)),
+            style: OutlinedButton.styleFrom(
+              side: const BorderSide(color: Colors.orange),
+            ),
             onPressed: () {
               setState(() {
                 color = Color.fromRGBO(
-                  random.nextInt(256),
-                  random.nextInt(256),
-                  random.nextInt(256),
+                  random.nextInt(mMaxRGBBalue),
+                  random.nextInt(mMaxRGBBalue),
+                  random.nextInt(mMaxRGBBalue),
                   1,
                 );
               });
